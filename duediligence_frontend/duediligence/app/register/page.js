@@ -4,6 +4,7 @@ import {useState} from 'react'
 
 
 export default function Register(){
+
     const [formData, setFormData] = useState({
         firstname: '',
         lastname: '',
@@ -12,11 +13,15 @@ export default function Register(){
         confirmpassword: ''
     })
 
+    const [showPassword, setShowPassword] = useState(false)
+
+
     const handleChange = (e) => {
         const { name, value} = e.target;
         setFormData((prev) => ({ ...prev, [name]: value}))
     }
 
+    
     const handleSubmit = (e) => {
         e.preventDefault();
         // Check if passwords match
@@ -24,8 +29,10 @@ export default function Register(){
     alert("Passwords do not match!");
     return; // Stop the function here
   }
+
+
         // backend stuff
-        console.log("Form Data:", formData)
+  console.log("Form Data:", formData)
   console.log("Form submitted successfully!", formData)      
     }
     return(
@@ -86,16 +93,23 @@ export default function Register(){
           </div>
 
           {/* Password */}
-          <div>
+          <div className = "relative">
             <label className="block text-sm font-medium text-gray-700">Password</label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               name="password"
               required
-              className="mt-1 w-full rounded-lg border border-gray-600 px-4 py-2 text-gray-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
+              className="mt-1 w-full rounded-lg border border-gray-600 px-4 py-2 text-gray-900 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500  pr-12"
               placeholder="••••••••"
               onChange={handleChange}
             />
+            <button 
+            type = "button"
+            onClick = {() => setShowPassword(!showPassword)}
+            className = 'absolute right-3 top-[60%] -translate-y-1/2  '
+            >
+            {showPassword ? "HIDE" : "SHOW"}
+              </button>
           </div>
 
           <div>
