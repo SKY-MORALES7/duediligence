@@ -64,16 +64,12 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="bg-slate-950 min-h-screen text-white py-20 px-6 relative overflow-hidden">
-      {/* Background Glows (Static) */}
-      <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20" />
-      <div className="absolute top-0 -right-4 w-72 h-72 bg-cyan-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20" />
-      <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20" />
-
+    <div className=" min-h-screen text-white py-20 px-6 relative overflow-hidden bg-gradient-to-r from-sky-950 to-slate-700 animate-gradient">   {/* Background Glows (Static) */}
+    
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-extrabold mb-5 bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent pb-2">
+          <h1 className="text-5xl font-extrabold mb-5 bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent pb-2 animate-gradient">
             Our Services Include
           </h1>
           <p className="text-slate-400 max-w-2xl mx-auto text-lg">

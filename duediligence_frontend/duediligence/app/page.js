@@ -96,8 +96,8 @@ export default function HomePage() {
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-7">
     
  
-    <div className="flex flex-row items-start gap-4 p-6 rounded-2xl bg-white border border-emerald-400/30 shadow-xl hover:shadow-emerald-700/30 transition-shadow duration-300">
-      <div className="flex-shrink-0">
+    <div className="group flex flex-row items-start gap-4 p-6 rounded-2xl bg-white border border-emerald-400/30 shadow-xl hover:shadow-emerald-700/30 transition-shadow duration-300">
+      <div className="group-hover:scale-110 flex-shrink-0">
         <UserCog size={60} className="text-emerald-500 transition-transform hover:scale-110" />
       </div>
       <div>
@@ -112,9 +112,9 @@ export default function HomePage() {
     </div>
 
  
-    <div className="flex flex-row items-start gap-4 p-6 rounded-2xl bg-white border border-cyan-400/30 shadow-[0_4px_16px_rgba(0,0,0,0.1)] hover:shadow-emerald-700/30 transition-shadow duration-300">
+    <div className=" group flex flex-row items-start gap-4 p-6 rounded-2xl bg-white border border-cyan-400/30 shadow-[0_4px_16px_rgba(0,0,0,0.1)] hover:shadow-emerald-700/30 transition-shadow duration-300">
       <div className="flex-shrink-0">
-        <ClipboardList size={60} className="text-cyan-500 transition-transform hover:scale-110" />
+        <ClipboardList size={60} className="text-cyan-500 transition-transform group-hover:scale-110" />
       </div>
       <div>
         <h2 className="text-xl font-extrabold text-cyan-600 mb-2">
@@ -140,9 +140,9 @@ export default function HomePage() {
 </div>
 </div>
    
-  <div className='flex flex-row items-start gap-4 p-6 rounded-2xl bg-white border border-amber-700/30 shadow-[0_4px_16px_rgba(0,0,0,0.1)] hover:shadow-amber-500/40 transition-shadow duration-300'>
+  <div className='group flex flex-row items-start gap-4 p-6 rounded-2xl bg-white border border-amber-700/30 shadow-[0_4px_16px_rgba(0,0,0,0.1)] hover:shadow-amber-500/40 transition-shadow duration-300'>
  <div className='flex-shrink-0'>
-  <CalendarCog size = {60} className = "text-amber-500 transition-transform hover:scale-110" />
+  <CalendarCog size = {60} className = "text-amber-500 transition-transform group-hover:scale-110" />
  </div>
 <div>
   <h2 className='text-xl font-extrabold text-amber-600 mb-2'>Improved Organisation</h2>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 
+
 export default function LoginPage() {
   const [formData, setFormData] = useState({
     email: "",
@@ -27,8 +28,9 @@ export default function LoginPage() {
             "url('https://img.freepik.com/free-photo/audio-headset-used-by-call-center-agents-help-clients-telecommunication-with-technology-empty-customer-service-workstation-with-headphones-computers-modern-gadgets_482257-40834.jpg?ga=GA1.1.2139969280.1761641929&semt=ais_incoming&w=740&q=80')",
         }}
       />
-      <div className="relative z-10 flex items-center justify-center  px-4 min-h-screen backdrop-blur-sm">
+      <div className="relative z-10 m-5 flex items-center justify-center  px-4 min-h-screen backdrop-blur-sm">
         <div className="max-w-xl rounded-2xl bg-zinc-200 p-8 mt-6 shadow-lg ">
+
           <div className="text-center m-3 mt-3">
             <h1 className="font-bold text-xl"> Login To Your Account </h1>
           </div>

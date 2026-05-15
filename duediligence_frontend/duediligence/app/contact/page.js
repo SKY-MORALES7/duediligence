@@ -32,7 +32,7 @@ export default function Contact() {
       />
 
       <div className="relative z-10 flex min-h-screen items-center justify-center  p-6  backdrop-blur-sm">
-        <div className="w-full max-w-xl rounded-xl bg-zinc-100 p-8 shadow-sm border border-gray-200">
+        <div className="w-full max-w-xl rounded-xl bg-zinc-100/90 p-8 shadow-sm border border-gray-200">
           <h1 className="mb-2 text-2xl font-bold text-gray-900">Contact Us</h1>
           <p className="mb-6 text-gray-500">
             Reach out to us and we'll get back to you.

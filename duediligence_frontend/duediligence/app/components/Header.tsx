@@ -2,11 +2,23 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image"
+import { usePathname } from "next/navigation";
+
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
+  const pathname = usePathname();
   const dropdownRef = useRef(null);
+
+
+  const navLinkClass = (path) =>
+  `transition ${
+    pathname === path
+      ? "text-slate-300 font-bold border-b-2 "
+      : "text-sky-50 hover:text-white/70"
+  }`;
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -22,68 +34,98 @@ export default function Header() {
     <header className="border-b border-gray-200 sticky top-0 z-50 shadow-sm bg-cyan-900">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 flex gap-4 items-center ">
           <Link
             href="/"
-            className="text-2xl font-bold text-sky-200 md:text-xl "
+         
           >
-            Duediligence
+               <Image
+      src="/images/logo.jpeg"
+      alt="Duediligence Logo"
+      width={48}
+      height={48}
+      className="rounded-full object-cover"
+    />
+    
+
           </Link>
+        <Link
+  href="/"
+  className="inline-block font-bold text-lg bg-gradient-to-r from-white via-white/60 to-cyan-400 bg-clip-text text-transparent"
+>
+  DueDiligence
+</Link>
         </div>
 
         {/* Desktop Links (Hidden on Mobile) */}
         <div className="hidden md:flex md:space-x-4 lg:space-x-8 ">
-          <Link href="/" className="text-sky-50 hover:underline transition">
+          <Link href="/" className={navLinkClass("/")}>
             Home
           </Link>
-          <Link href="/buy" className="text-sky-50 hover:underline transition">
+          <Link href="/buy" className={navLinkClass("/buy")}>
             Buy
           </Link>
           <div className="relative" ref={dropdownRef}>
-            <button
-              onClick={() => setIsDashboardOpen(!isDashboardOpen)}
-              className="text-white flex items-center gap-1 hover:text-teal-200 transition focus:outline-none"
-            >
-              Products {isDashboardOpen ? "▴" : "▾"}
-            </button>
-            {isDashboardOpen && (
-              <div className="absolute left-0 mt-2 w-48 bg-sky-950 rounded-md shadow-2xl border border-teal-500/70 z-50">
-                <p className="hover:bg-blue-300/40  text-slate-50  text-bold px-4 pt-3 pb-2 hover:text-black">
-                  Products 1
-                </p>
-                <p className="hover:bg-blue-300/40   text-slate-50 text-bold px-4 pt-3 pb-2 hover:text-black">
-                  Products 2
-                </p>
-              </div>
-            )}
-          </div>
+        <button
+    onClick={() => setIsDashboardOpen(!isDashboardOpen)}
+    className="text-white flex items-center gap-1 hover:text-teal-200 transition focus:outline-none"
+  >
+    Products {isDashboardOpen ? "▴" : "▾"}
+  </button>
+
+  {isDashboardOpen && (
+    <div className="absolute left-0 mt-2 w-48 bg-sky-950 rounded-md shadow-2xl border border-teal-500/70 z-50 flex flex-col overflow-hidden">
+      
+      <Link
+        href="/"
+        className="block w-full px-4 py-2 text-slate-50 hover:bg-blue-300/40 hover:text-black transition"
+      >
+        Products 1
+      </Link>
+
+      <Link
+        href="/"
+        className="block w-full px-4 py-2 text-slate-50 hover:bg-blue-300/40 hover:text-black transition"
+      >
+        Products 2
+      </Link>
+
+    </div>
+  )}
+</div>
           <Link
             href="/about"
-            className="text-sky-50 hover:underline transition"
+           className={navLinkClass("/about")}
           >
             About
           </Link>
           <Link
+            href="/hire"
+           className={navLinkClass("/hire")}
+          >
+            Hire-Teacher
+          </Link>
+          <Link
             href="/services"
-            className="text-sky-50 hover:underline transition"
+            className={navLinkClass("/services")}
           >
             Services
           </Link>
           <Link
             href="/login"
-            className="text-sky-50 hover:underline transition"
+         className={navLinkClass("/login")}
           >
             Login
           </Link>
           <Link
             href="/register"
-            className="text-sky-50 hover:underline transition"
+    className={navLinkClass("/register")}
           >
             Register
           </Link>
           <Link
             href="/contact"
-            className="text-sky-50 hover:underline transition"
+           className={navLinkClass("/contact")}
           >
             Contact
           </Link>
@@ -147,9 +189,9 @@ export default function Header() {
             </button>
 
             {isDashboardOpen && (
-              <div className="mt-2 ml-4 p-2 bg-sky-900/50 rounded-lg border-l-2 border-teal-400">
-                <p className="text-sky-100 text-sm py-1">Products 1</p>
-                <p className="text-sky-100 text-sm py-1">Products 2</p>
+              <div className="absolute mt-2 ml-4 p-2 bg-sky-900/80 rounded-lg border-l-2 border-teal-400">
+                <Link href = "/" className=" block text-sky-100 text-sm py-1">Products 1</Link>
+                <Link href = "/" className=" block text-sky-100 text-sm py-1">Products 2</Link>
               </div>
             )}
           </div>
@@ -159,6 +201,13 @@ export default function Header() {
             className="text-gray-50 font-medium"
           >
             About
+          </Link>
+          <Link
+            href="/hire"
+            onClick={() => setIsOpen(false)}
+            className="text-gray-50 font-medium"
+          >
+            Hire-Teacher
           </Link>
           <Link
             href="/services"
